@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>login/Signup</title>
+        <style>
+            body{
+                background-image: url(jj.jpg);
+                
+            }
+            .box{
+                
+                height: 200px;
+                width: 400px;
+                position:relative;
+                top: 250px;
+                left: 420px;
+                border-style:solid;
+                padding: 20px;
+                background-color: #fb9e96;
+                opacity: 0.8  ;
+            }
+        </style>
+        <script>
+            function b(thisform)
+            {   
+                 var x =thisform.un.value;
+                 var y =thisform.pw.value;
+                 var r = /^\d{10}/;
+                 var re=/^[A-Za-z]{1,}\@gmail.com$/;
+                 var p=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&])[A-Za-z\d@.#$!%*?&]{8,15}$/; 
+                 if(isNaN(x))
+                 {
+                    if(!(re.test(x)))
+                    {
+                        alert('invalid mail');
+                        thisform.un.focus();
+                        return false;
+                    } 
+                 }
+                 else
+                 {
+                  if(!(r.test(x)))
+                  {
+                    alert('mobile number is invalid');
+                    thisform.un.focus();
+                    return false;
+                  }  
+                }
+
+                if(!(p.test(y)))
+                {
+                    alert("password should be of atleast 1 uppercase,lowercase,symbol and digit");
+                    thisform.pw.focus();
+                    return false;
+                }
+                return true;
+            }
+        </script>
+    </head>
+    <BODY>
+        <form  name="f"  onsubmit="return b(this)"  target="_top" action="https://gaana.com/" > 
+    <div class="box">
+        Mobile/email : <input type="text" name="un"  placeholder="enter email/mobile" ><br/><br/>
+        password     : <input type="password" name="pw" placeholder="enter password"><br/><br/>
+        <input type="submit" value="login" name="log"  ><br/> <br/>
+        Not registered yet!<a href="signup.html" style="text-decoration: none;"><b> SignUp</b></a>
+    </div>
+    </form>
+    </BODY>
+</html>
